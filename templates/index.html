@@ -1,11 +1,3 @@
-{% load static %}
+<h1> My Instagram Main Page </h1>
 
-<div>
-
-    {% for post in object_list %}
-        <a href="{% url 'post_detail' post.id %}">
-            <img src="/{{post.image}}">
-        </a>
-    {% endfor%}
-
-</div>
+<a href="{% url 'insta_root'%}">Go to Instagram</a>

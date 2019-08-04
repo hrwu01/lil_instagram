@@ -1,15 +1,36 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from insta.models import Post
+from django.urls import reverse, reverse_lazy
 
 # Create your views here.
-class HelloWorld(TemplateView):
+class InstaRoot(TemplateView):
     template_name = 'dummy.html'
 
-class PostsView(ListView):
+class PostListView(ListView):
     model = Post
-    template_name = 'index.html'
+    template_name = 'posts.html'
 
 class PostDetailView(DetailView):
     model = Post
     template_name = 'detail.html'
+
+class PostCreateView(CreateView):
+    model = Post
+    template_name = 'create_post.html'
+    fields = '__all__'
+    success_url = reverse_lazy('posts')
+
+class PostUpdateView(UpdateView):
+    model = Post
+    template_name = 'update_post.html'
+    fields = '__all__'
+    success_url = reverse_lazy('posts')
+    
+    
+
+class PostDeleteView(DeleteView):
+    model = Post
+    template_name = 'delete_post.html'
+    success_url = reverse_lazy('posts')
