@@ -1,19 +1,38 @@
-<div>
-<a href="{% url 'posts' %}">Back to posts</a>
+{% load static %}
+<header>
+    {% if request.user.is_authenticated %}
+    <li>
+        <p>Hi, {{request.user.username}}</p>
+    </li>
+    <li>
+        <p><a href="{% url 'logout' %}">Logout</a></p>
+    </li>
+    {% else %}
+    <li>
+        <p><a href="{% url 'login' %}">Login</a></p>
+    </li>
+    <li>
+        <p><a href='/'>Signup</a></p>
+    </li>
 
-</div>
+    {% endif %}
+    <li>
 
-<div>
-<a href="{% url 'update_post' object.id %}">Update Post</a>
+    <p><a href="{% url 'create_post' %}">Create post</a></p>
 
-</div>
+    </li>
+</header>
 
-<div>
-<a href="{% url 'delete_post' object.id %}">Delete Post</a>
+<body>
 
-</div>
 
-<p> {{ object.title }} </p>
+    <p><a href="{% url 'posts' %}">Back to posts</a></p>
 
-    <img src="/{{object.image}}">
-</p>
+    <p><a href="{% url 'update_post' object.id %}">Update Post</a></p>
+
+    <p><a href="{% url 'delete_post' object.id %}">Delete Post</a></p>
+
+    <p> {{ object.title }} </p>
+        <img src="/{{object.image}}">
+    </p>
+</body>
