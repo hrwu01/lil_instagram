@@ -22,4 +22,6 @@ urlpatterns = [
     path('', Root.as_view(), name = 'root'),
     path('admin/', admin.site.urls),
     path('insta/', include('insta.urls')),
+    path('authentication/', include('authentication.urls')),
+    path('auth/', include('django.contrib.auth.urls')),
 ]

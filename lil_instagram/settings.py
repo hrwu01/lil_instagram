@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'insta',
     'imagekit',
     'main_index',
+    'authentication',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+
+AUTH_USER_MODEL = 'authentication.InstaUser'
+
+LOGIN_REDIRECT_URL = 'posts'
+
+LOGOUT_REDIRECT_URL = 'posts'
