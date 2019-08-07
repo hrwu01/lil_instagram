@@ -1,36 +1,17 @@
+{% extends "header.html" %}
 {% load static %}
-<header>
-    {% if request.user.is_authenticated %}
-    <li>
-        <p>Hi, {{request.user.username}}</p>
-    </li>
-    <li>
-        <p><a href="{% url 'logout' %}">Logout</a></p>
-    </li>
-    {% else %}
-    <li>
-        <p><a href="{% url 'login' %}">Login</a></p>
-    </li>
-    <li>
-        <p><a href="{% url 'signup' %}">Signup</a></p>
-    </li>
 
-    {% endif %}
-    <li>
 
-    <p><a href="{% url 'create_post' %}">Create post</a></p>
+{% block content %}
 
-    </li>
-</header>
-
-<body>
     <div>
 
         {% for post in object_list %}
             <a href="{% url 'post_detail' post.id %}">
-                <img src="/{{post.image}}">
+                <img src="/{{post.image}}" width=400 height=400>
             </a> 
         {% endfor %}
 
     </div>
-</body>
+
+{% endblock content %}
