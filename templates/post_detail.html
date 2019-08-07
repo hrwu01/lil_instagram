@@ -3,10 +3,6 @@
 
 {% block content %}
 
-
-
-    <p><a href="{% url 'posts' %}">Back to posts page</a></p>
-
     <p><a href="{% url 'update_post' object.id %}">Update this post</a></p>
 
     <p><a href="{% url 'delete_post' object.id %}">Delete this post</a></p>
