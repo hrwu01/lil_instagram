@@ -1,45 +1,33 @@
-<html>
-{% load static %}
-<head>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
 
-<body>
-<header>
-    <div class="my_instagram">
-        <a href="{% url 'posts'%}">My Instagram</a>
-    </div>
-    
 
-    <div>
-        <ul>
-            {% if request.user.is_authenticated %}
-            <p class="title">
-                Hi, {{request.user.username}}
-            </p>
-            <li>
-                <a href="{% url 'create_post' %}">Make post</a>
-            </li>
-            <li>
-                <a href="{% url 'logout' %}">Logout</a>
-            </li>
-            {% else %}
-            <p class="title">
-                Hi, please login
-            </p>
-            <li>
-                <a href="{% url 'login' %}">Login</a>
-            </li>
-            <li>
-                <a href="{% url 'signup' %}">Signup</a>
-            </li>
+<div class="my_instagram">
+    <a href="{% url 'posts'%}">My Instagram</a>
+</div>
 
-            {% endif %}
-        </ul>
-    </div>
-</header>
 
-{% block content %}
-{% endblock content %}
-</body>
-</html>
+<div>
+    <ul>
+        {% if request.user.is_authenticated %}
+        <p class="title">
+            Hi, {{request.user.username}}
+        </p>
+        <li>
+            <a href="{% url 'create_post' %}">Make post</a>
+        </li>
+        <li>
+            <a href="{% url 'logout' %}">Logout</a>
+        </li>
+        {% else %}
+        <p class="title">
+            Hi, please login
+        </p>
+        <li>
+            <a href="{% url 'login' %}">Login</a>
+        </li>
+        <li>
+            <a href="{% url 'signup' %}">Signup</a>
+        </li>
+
+        {% endif %}
+    </ul>
+</div>
