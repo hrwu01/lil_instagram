@@ -1,9 +1,6 @@
-<header>
-    <div>
-        <a href="{% url 'posts'%}">My Instagram</a>
-    </div>
-</header>
+{% extends 'base.html' %}
 
+{% block content %}
 <h1> Sign up</h1>
 
 <form method='post'>
@@ -11,3 +8,4 @@
     {{ form.as_p }}
     <button type='submit'>Signup</button>
 </form>
+{% endblock content %}
