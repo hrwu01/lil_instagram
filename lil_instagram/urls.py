@@ -24,4 +24,5 @@ urlpatterns = [
     path('insta/', include('insta.urls')),
     path('authentication/', include('authentication.urls')),
     path('auth/', include('django.contrib.auth.urls')),
+    path('users/', include('users.urls'))
 ]

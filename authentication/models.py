@@ -11,3 +11,15 @@ class InstaUser(AbstractUser):
         blank = True,
     )
 
+    def get_connections(self):
+        connections = UserConnection.objects.filter(creator=self)
+        return connections
+
+    def get_followers(self):
+        followers = UserConnection.objects.filter(following=self)
+        return followers
+
+    def is_followed_by(self, user):
+        followers = UserConnection.objects.filter(following=self)
+        return followers.filter(creator=user).exists()
+

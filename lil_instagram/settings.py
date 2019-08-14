@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'imagekit',
     'main_index',
     'authentication',
+    'users',
 ]
 
 MIDDLEWARE = [

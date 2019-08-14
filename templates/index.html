@@ -1,3 +1,10 @@
-<h1> My Instagram Main Page </h1>
+{% extends "base.html" %}
+{% load static %}
 
-<a href="{% url 'insta_root'%}">Go to Instagram</a>
+{% block content %}
+
+    <h1>LIL.INSTAGRAM presented by Raaaaabert</h1>
+    <h2>Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'signup' %}">signup</a></h2>
+
+
+{% endblock content %}

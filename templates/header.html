@@ -1,33 +1,22 @@
 
+<div class="navbar navbar-default navbar-fixed-top" id="main-nav">
+    <div class="container desktop">
+        <div class="navbar-header">
+            <a href="{% url 'posts' %}" class="navbar-brand">lil Instagram</a>
+        </div>
 
-<div class="my_instagram">
-    <a href="{% url 'posts'%}">My Instagram</a>
-</div>
-
-
-<div>
-    <ul>
-        {% if request.user.is_authenticated %}
-        <p class="title">
-            Hi, {{request.user.username}}
-        </p>
-        <li>
-            <a href="{% url 'create_post' %}">Make post</a>
-        </li>
-        <li>
-            <a href="{% url 'logout' %}">Logout</a>
-        </li>
-        {% else %}
-        <p class="title">
-            Hi, please login
-        </p>
-        <li>
-            <a href="{% url 'login' %}">Login</a>
-        </li>
-        <li>
-            <a href="{% url 'signup' %}">Signup</a>
-        </li>
-
-        {% endif %}
-    </ul>
+        <div id="navbar-main">
+            <ul class="nav navbar-nav navbar-right">
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'posts' %}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+                    <li><a href="{% url 'create_post' %}"><i class="fa fa-plus" aria-hidden="true"></i></a></li>
+                    <li><a href="{% url 'user_detail' user.id %}"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                    <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'signup' %}">Signup</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
 </div>
