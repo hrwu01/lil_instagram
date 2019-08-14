@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'main_index',
     'authentication',
     'users',
+    'allmodels',
 ]
 
 MIDDLEWARE = [
@@ -126,7 +127,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 
-AUTH_USER_MODEL = 'authentication.InstaUser'
+AUTH_USER_MODEL = 'allmodels.InstaUser'
 
 LOGIN_REDIRECT_URL = 'posts'
 
