@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from imagekit.models import ProcessedImageField
+from users.models import UserConnection
 
 class InstaUser(AbstractUser):
     profile_pic = ProcessedImageField(
