@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load custom_tags %}
+{% load static %}
 
 {% block content %}
 
@@ -10,13 +11,18 @@
         <div class="row">
             <div class="col-xs-4 left">
                 {% if object.profile_pic %}
-                    <img class="picture-circle" src="/{{object.profile_pic}}">
+                    <img class="picture-circle" src="/{{object.profile_pic.url}}">
+                {% else %}
+                    <img class="picture-circle" src="{% static 'images/profile_placeholder.jpg' %}">
                 {% endif %}
             </div>
             <div class="col-xs-8 right">
                 <div class="name-buttons">
                     <h1 class="username">{{ object.username }}</h1>
                     {% if user == object %}
+                        <a class="edit-desktop" href="{% url 'edit_profile' user.pk %}">
+                            <button class="edit-profile">Edit Profile</button>
+                        </a>
                     {% else %}
                         {% is_following user object as following %}
                         <div class="follow-toggle__container">
@@ -34,8 +40,6 @@
                 <div>
                     <ul class="stats">
                         <div class="col-xs-4"><li class="stats__count"><span>{{ object.my_posts.count }}</span><br> posts</li></div>
-                        <div class="col-xs-4"><li class="stats__count"><span class="follower_count" id="follower_id">{{ object.get_followers.count }}</span><br> followers</li></div>
-                        <div class="col-xs-4"><li class="stats__count"><span>{{ object.get_connections.count }}</span><br> following</li></div>
                     </ul>
                 </div>
             </div>
